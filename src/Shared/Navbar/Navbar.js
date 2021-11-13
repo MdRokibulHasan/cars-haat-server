@@ -45,7 +45,7 @@ const Navbar = () => {
               </Link>
               <Link to="/products">
                 <li className="nav-item">
-                  <a className="nav-link">Services</a>
+                  <a className="nav-link">Products</a>
                 </li>
               </Link>
 
@@ -55,7 +55,7 @@ const Navbar = () => {
                 </li>
               </Link>
               {
-                admin && <Link to="/dashboard">
+                user?.email && <Link to="/dashboard">
                   <li className="nav-item">
                     <a className="nav-link">Dashboard</a>
                   </li>

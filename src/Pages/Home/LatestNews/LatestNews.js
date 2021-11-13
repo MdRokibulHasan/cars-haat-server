@@ -4,12 +4,10 @@ import img from '../../../images/blog1.jpg'
 const LatestNews = () => {
   return (
     <div className="container py-3">
-      <h3 className="text-center"> Latest Auto News</h3>
-      <div className="text-center">
-        Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
-        imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper
-        ultricies nisi.
-      </div>
+      <h3 className="text-center mt-5"> Best Sell Ouer Products</h3>
+
+      <p className="text-center">We strive to get our best products to you</p>
+
 
       <div className="row py-3">
         <div className="col-md-4 col-md-4 col-4 ">

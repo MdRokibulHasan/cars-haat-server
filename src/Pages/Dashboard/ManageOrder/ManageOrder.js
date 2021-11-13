@@ -1,6 +1,12 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import OrderDisplay from './OrderDisplay/OrderDisplay';
 const ManageOrder = () => {
+    const [order, setOrder] = useState();
+    useEffect(() => {
+        fetch('http://localhost:5000/order')
+            .then(res => res.json())
+            .then(data => setOrder(data));
+    }, []);
     return (
         <div>
             <h1>Manage Order</h1>
@@ -19,13 +25,12 @@ const ManageOrder = () => {
                 </thead>
                 <tbody>
 
-                    {/*  {
-                        order?.map((iteam, index) => (<Order
+                    {
+                        order?.map((iteam) => (<OrderDisplay
                             key={iteam._id}
-                            sl={index}
                             iteam={iteam}
-                        > </Order>))
-                    } */}
+                        > </OrderDisplay>))
+                    }
 
                 </tbody>
             </table>

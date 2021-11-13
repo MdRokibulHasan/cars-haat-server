@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 // import './Dashboard.css';
 import {
@@ -15,9 +16,12 @@ import AddProducts from './AddProducts/AddProducts';
 import DashboardHome from './DashboardHome/DashboardHome';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageOrder from './ManageOrder/ManageOrder';
+import Payment from './Payment/Payment';
+import UserOrder from './UserOrder/UserOrder';
+import UserReview from './UserReview/UserReview';
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const { admin, logOut } = useAuth();
+    const { admin, logOut, user } = useAuth();
 
     return (
         <div>
@@ -50,25 +54,40 @@ const Dashboard = () => {
                             </NavLink>
                             <NavLink to={`${url}`}>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fa fa-cog"></i><span className="ml-1 d-none d-sm-inline">Dashboard</span></a>
+                                    <a className="nav-link"><i className="fa fa-cog"></i><span className="ml-1 d-none d-sm-inline">Dashboard</span></a>
                                 </li>
                             </NavLink>
-                            <NavLink to={`${url}/makeadmin`}>
+                            {admin ? <NavLink to={`${url}/makeadmin`}>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fa fa-star"></i><span className="ml-1 d-none d-sm-inline">Make Admin</span></a>
+                                    <a className="nav-link" ><i className="fa fa-star"></i><span className="ml-1 d-none d-sm-inline">Make Admin</span></a>
                                 </li>
                             </NavLink>
+                                : <NavLink to={`${url}/userorder`}>
+                                    <li className="nav-item">
+                                        <a className="nav-link" ><i className="fa fa-star"></i><span className="ml-1 d-none d-sm-inline">My Order</span></a>
+                                    </li>
+                                </NavLink>}
 
-                            <NavLink to={`${url}/addproducts`}>
+                            {admin ? <NavLink to={`${url}/addproducts`}>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fa fa-heart"></i><span className="ml-1 d-none d-sm-inline">Add Products</span></a>
+                                    <a className="nav-link" ><i className="fa fa-heart"></i><span className="ml-1 d-none d-sm-inline">Add Products</span></a>
                                 </li>
                             </NavLink>
-                            <NavLink to={`${url}/manageorder`}>
+                                : <NavLink to={`${url}/payment`}>
+                                    <li className="nav-item">
+                                        <a className="nav-link" ><i className="fa-file-invoice-dollar"></i><span className="ml-1 d-none d-sm-inline">Pay</span></a>
+                                    </li>
+                                </NavLink>}
+                            {admin ? <NavLink to={`${url}/manageorder`}>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><i className="fa fa-heart"></i><span className="ml-1 d-none d-sm-inline">Manage Order</span></a>
+                                    <a className="nav-link" ><i className="fa fa-heart"></i><span className="ml-1 d-none d-sm-inline">Manage Order</span></a>
                                 </li>
                             </NavLink>
+                                : <NavLink to={`${url}/userreview`}>
+                                    <li className="nav-item">
+                                        <a className="nav-link" ><i className="fa fa-heart"></i><span className="ml-1 d-none d-sm-inline">Review</span></a>
+                                    </li>
+                                </NavLink>}
 
                         </ul>
                     </div>
@@ -79,14 +98,20 @@ const Dashboard = () => {
                             <Route exact path={path}>
                                 <DashboardHome></DashboardHome>
                             </Route>
+                            <Route path={`${path}/payment`}>
+                                <Payment></Payment>
+                            </Route>
+                            <Route path={`${path}/userorder`}>
+                                <UserOrder></UserOrder>
+                            </Route>
                             <AdminRoute path={`${path}/makeadmin`}>
                                 <MakeAdmin></MakeAdmin>
                             </AdminRoute>
-                            {/* <AdminRoute path={`${path}/addproducts`}>
+                            <AdminRoute path={`${path}/addproducts`}>
                                 <AddProducts></AddProducts>
-                            </AdminRoute> */}
-                            <Route path={`${path}/addproducts`}>
-                                <AddProducts></AddProducts>
+                            </AdminRoute>
+                            <Route path={`${path}/userreview`}>
+                                <UserReview></UserReview>
                             </Route>
                             <AdminRoute path={`${path}/manageorder`}>
                                 <ManageOrder></ManageOrder>

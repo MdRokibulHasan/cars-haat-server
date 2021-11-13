@@ -11,6 +11,8 @@ import Contact from "./Pages/Contact/Contact/Contact";
 import Products from "./Pages/Products/Products/Products";
 import PrivateRoute from "./Pages/Login/Login/PrivateRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import BuyProducts from "./Pages/Products/BuyProducts/BuyProducts";
+import UserReview from "./Pages/Dashboard/UserReview/UserReview";
 
 
 
@@ -40,12 +42,19 @@ function App() {
           <PrivateRoute path="/products">
             <Products></Products>
           </PrivateRoute>
+          <PrivateRoute path="/buyproducts/:id">
+            <BuyProducts></BuyProducts>
+          </PrivateRoute>
 
           <Route path="/contact">
             <Contact></Contact>
           </Route>
           <Route path="/dashboard">
             <Dashboard></Dashboard>
+
+          </Route>
+          <Route path="/userreview">
+            <UserReview></UserReview>
 
           </Route>
         </Switch>

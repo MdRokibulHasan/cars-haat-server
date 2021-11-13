@@ -13,24 +13,25 @@ const Products = () => {
 
 
     return (
-        <div>
-            <div className="container pt-5">
-                <div className="row">
-                    <h3 className="text-dark text-center"> Products </h3>
 
-                    {
-                        values?.map(product => (<DisplayUserProduct
-                            key={product._id}
-                            product={product}
+        <div className="container pt-5">
+            <h3 className="text-dark text-center"> Products </h3>
+            <div className="row">
 
-                        ></DisplayUserProduct>))
 
-                    }
-                </div>
+                {
+                    values?.map(product => (<DisplayUserProduct
+                        key={product._id}
+                        product={product}
+
+                    ></DisplayUserProduct>))
+
+                }
             </div>
-            );
         </div>
     );
+
+
 };
 
 export default Products;
