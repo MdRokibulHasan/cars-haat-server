@@ -46,7 +46,7 @@ const Dashboard = () => {
                 <div className="row vh-100 flex-nowrap">
                     <div className="col-xl-2 col-sm-3 col-auto collapse show sidebar bg-dark text-white px-0">
 
-                        <ul className="nav flex-column flex-nowrap text-truncate navbar-dark bg-dark mx-auto position-fixed pt-2 vh-100" id="sidebar">
+                        <ul className="nav flex-column flex-nowrap text-truncate navbar-dark bg-dark mx-auto position-fixed pt-2 vh-100" id="sidebar" style={{ marginTop: 70 }}>
                             <NavLink to="/home">
                                 <li className="nav-item">
                                     <a className="nav-link active" href="/home"><i className="fa fa-home"></i><span className="ml-1 d-none d-sm-inline">Home</span></a>

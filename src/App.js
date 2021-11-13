@@ -13,6 +13,8 @@ import PrivateRoute from "./Pages/Login/Login/PrivateRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import BuyProducts from "./Pages/Products/BuyProducts/BuyProducts";
 import UserReview from "./Pages/Dashboard/UserReview/UserReview";
+import NotFound from "./NotFound/NotFound";
+import UserShowReview from "./Pages/Dashboard/UserShowReview/UserShowReview";
 
 
 
@@ -21,47 +23,63 @@ function App() {
     <AuthProvider>
       <Router>
         <Route>
-          <Navbar></Navbar>
+
         </Route>
         <Switch>
           <Route path="/login">
+            <Navbar></Navbar>
             <Login />
+            <Footer></Footer>
           </Route>
           <Route path="/registration">
+            <Navbar></Navbar>
             <Registration />
+            <Footer></Footer>
           </Route>
           <Route exact path="/">
+            <Navbar></Navbar>
             <Home />
+            <Footer></Footer>
           </Route>
           <Route path="/home">
+            <Navbar></Navbar>
             <Home />
+            <Footer></Footer>
           </Route>
           <Route path="/about">
+            <Navbar></Navbar>
             <About></About>
+            <Footer></Footer>
           </Route>
           <PrivateRoute path="/products">
+            <Navbar></Navbar>
             <Products></Products>
+            <Footer></Footer>
           </PrivateRoute>
           <PrivateRoute path="/buyproducts/:id">
+            <Navbar></Navbar>
             <BuyProducts></BuyProducts>
+            <Footer></Footer>
           </PrivateRoute>
 
           <Route path="/contact">
+            <Navbar></Navbar>
             <Contact></Contact>
+            <Footer></Footer>
           </Route>
           <Route path="/dashboard">
             <Dashboard></Dashboard>
 
           </Route>
-          <Route path="/userreview">
-            <UserReview></UserReview>
-
+          <Route path="/showuserreview">
+            <UserShowReview></UserShowReview>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
 
-        <Route>
-          <Footer></Footer>
-        </Route>
+
       </Router>
     </AuthProvider>
   );

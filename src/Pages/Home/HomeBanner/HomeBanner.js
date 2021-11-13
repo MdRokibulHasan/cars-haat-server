@@ -1,8 +1,8 @@
 import React from "react";
 
-import img1 from "../../../images/NewMcLarenUltimateSeries-1280x720.jpg"
-import img2 from "../../../images/photo-1492144534655-ae79c964c9d7.jpg"
-import img3 from "../../../images/TR4wp3g5bUSPcwpeUiohUU.jpg"
+import img1 from "../../../images/Jaguar2.jpg"
+import img2 from "../../../images/bmw.jpg"
+import img3 from "../../../images/rolls-royce.jpg"
 
 import './HomeBanner.css'
 const HomeBanner = () => {
@@ -41,7 +41,7 @@ const HomeBanner = () => {
               src={img1}
               className="d-block w-100"
               style={{
-                minHeight: "10%",
+                minHeight: "15%",
                 maxHeight: 400,
               }}
               alt="..."
@@ -79,7 +79,7 @@ const HomeBanner = () => {
             <img
               src={img2}
               style={{
-                minHeight: "10%",
+                minHeight: "15%",
                 maxHeight: 400,
               }}
               className="d-block w-100"
@@ -116,7 +116,7 @@ const HomeBanner = () => {
             <img
               src={img3}
               style={{
-                minHeight: "10%",
+                minHeight: "15%",
                 maxHeight: 400,
               }}
               className="d-block w-100"

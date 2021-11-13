@@ -37,7 +37,7 @@ const AddProducts = () => {
             .then((result) => console.log(result));
     };
     return (
-        <div>
+        <div className="mt-5">
             <h1>Please add your Products</h1>
             <div>
                 <div className="d-flex justify-content-center ">
@@ -105,8 +105,8 @@ const AddProducts = () => {
                         </div> */}
 
                         <button onClick={handelevent} className="btn btn-sucess">
-                            {" "}
-                            AddEvents{" "}
+
+                            AddProducts
                         </button>
                     </div>
                 </div>

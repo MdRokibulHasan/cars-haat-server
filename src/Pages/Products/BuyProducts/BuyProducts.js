@@ -6,11 +6,10 @@ import useAuth from '../../../hooks/useAuth';
 import './BuyProducts.css';
 
 const BuyProducts = () => {
-    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm
-        ();
+    const { register, handleSubmit, reset } = useForm();
     const { id } = useParams();
     const { user } = useAuth();
-    console.log('user id', id);
+    // console.log('user id', user);
     const [details, setDetails] = useState([])
     const [specificDetail, setSpecificDetail] = useState({})
 
@@ -36,12 +35,11 @@ const BuyProducts = () => {
 
     const { title, payment } = specificDetail;
 
-
+    // const { displayName, email } = user;
 
     const onSubmit = data => {
-        console.log('paice', data);
+        console.log(data);
         axios.post('http://localhost:5000/order', { ...{ title, payment }, ...data, 'status': 1 })
-
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');
@@ -49,8 +47,7 @@ const BuyProducts = () => {
                 }
             })
 
-    };
-
+    }
     return (
         <div className="container py-3">
             <h1 className="text-uppercase text-center p-3"> Buy Products </h1>
@@ -85,11 +82,12 @@ const BuyProducts = () => {
                     <div className="info">
                         <h3>  Seller details </h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input {...register("name", { required: true, maxLength: 20 })} defaultValue={user.displayName} disabled />
-                            <input type="email" {...register("email")} defaultValue={user.email} disabled />
+                            <input {...register("name")} defaultValue={user?.displayName} />
+                            <input type="email" {...register("email")} defaultValue={user?.email} />
                             <input type="text" {...register("address")} placeholder="Address" />
                             <input type="number" {...register("phone")} placeholder="Phone" />
-                            <input type="submit"></input>
+
+                            <input type="submit" />
                         </form>
 
                     </div>

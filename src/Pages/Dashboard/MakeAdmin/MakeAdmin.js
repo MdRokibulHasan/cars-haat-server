@@ -27,7 +27,7 @@ const MakeAdmin = () => {
         e.preventDefult()
     }
     return (
-        <div>
+        <div className="mt-5">
             <h1>Make A Admin</h1>
             <form onSubmit={handleAdminSubmit}>
                 <div class="input-group mb-3">

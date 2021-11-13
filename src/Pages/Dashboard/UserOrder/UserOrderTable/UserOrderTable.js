@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-const UserOrderTable = (props) => {
-    const { _id, title, status, payment } = props.iteam;
+const UserOrderTable = ({ iteam }) => {
+    const { _id, title, status, payment } = iteam;
+    console.log('user data', iteam);
     const [order, setOrder] = useState();
     useEffect(() => {
         fetch('http://localhost:5000/orders')

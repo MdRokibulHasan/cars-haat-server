@@ -15,7 +15,7 @@ const Products = () => {
     return (
 
         <div className="container pt-5">
-            <h3 className="text-dark text-center"> Products </h3>
+
             <div className="row">
 
 

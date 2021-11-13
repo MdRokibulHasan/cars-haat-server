@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import UserOrderTable from './UserOrderTable/UserOrderTable';
 
+
 const UserOrder = () => {
     const [order, setOrder] = useState([]);
     const [data, setData] = useState([]);
     const { user } = useAuth();
-    console.log(data);
+    // console.log(data);
     useEffect(() => {
         fetch('http://localhost:5000/orders')
             .then(res => res.json())
-            .then(data => setOrder(data))
+            .then(data => setOrder(data));
     }, []);
+
     useEffect(() => {
         if (order.length > 0) {
 
@@ -20,23 +22,6 @@ const UserOrder = () => {
         }
 
     }, [order]);
-
-    const handleDelete = id => {
-        // console.log(id);
-        const url = `http://localhost:5000/orders/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.deletedCount) {
-                    alert('Delete Successfully')
-                    const remaining = order.filter(iteam => iteam._id !== id);
-                    setOrder(remaining);
-                }
-            })
-    }
 
     return (
         <div>
@@ -55,9 +40,8 @@ const UserOrder = () => {
                 </thead>
                 <tbody>
                     {
-                        data?.map((iteam, index) => (<UserOrderTable
+                        data?.map((iteam) => (<UserOrderTable
                             key={iteam._id}
-
                             iteam={iteam}
                         > </UserOrderTable>))
                     }

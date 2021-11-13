@@ -8,7 +8,7 @@ const ManageOrder = () => {
             .then(data => setOrder(data));
     }, []);
     return (
-        <div>
+        <div className="mt-5">
             <h1>Manage Order</h1>
             <table class="table table-striped">
                 <thead>

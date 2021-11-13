@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import './Navbar.css';
 const Navbar = () => {
   const { user, logOut, admin } = useAuth();
   // console.log(admin);
@@ -9,16 +9,16 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand " >
             <span
               style={{
                 color: "#EE5624",
               }}
             >
               {" "}
-              Cars{" "}
+              Cars
             </span>
-            -Haat
+            Haat
           </a>
           <button
             className="navbar-toggler"

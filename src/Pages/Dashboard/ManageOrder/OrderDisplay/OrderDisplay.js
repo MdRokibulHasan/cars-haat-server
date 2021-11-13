@@ -20,19 +20,26 @@ const OrderDisplay = (props) => {
     // console.log(status);
     const handleDelete = id => {
         // console.log(id);
-        const url = `http://localhost:5000/order/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.deletedCount) {
-                    alert('Delete Successfully')
-                    const remaining = order.filter(iteam => iteam._id !== id);
-                    setOrder(remaining);
-                }
+        const confirmation = window.confirm('Are you sure to Delete!!')
+        if (confirmation) {
+            const url = `http://localhost:5000/orders/${id}`;
+            fetch(url, {
+                method: 'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data.deletedCount) {
+                        alert('Delete Successfully')
+                        const remaining = order.filter(iteam => iteam._id !== id);
+                        setOrder(remaining);
+                    }
+                    else {
+                        alert('Something is wrong');
+                    }
+                });
+        }
+
     }
     return (
         <tr>
@@ -44,7 +51,7 @@ const OrderDisplay = (props) => {
             <td>{address}</td>
             <td>{getStatus(status)}</td>
             <td>
-                <button onClick={() => handleDelete(_id)}  >Shipping</button>
+                <button   >Shipping</button>
                 <button onClick={() => handleDelete(_id)}  >Delete</button>
 
             </td>
