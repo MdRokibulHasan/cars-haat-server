@@ -13,10 +13,10 @@ const DisplayUserProduct = ({ product }) => {
     return (
 
         <div className="col-md-4">
-            <div class="card">
-                <img src={thabnil} class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title text-dark">{title}
+            <div className="card mt-3">
+                <img src={thabnil} className="card-img-top" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title text-dark">{title}
                     </h5>
                     <div>
                         <span> Price </span> <span > {payment} </span>
@@ -28,7 +28,7 @@ const DisplayUserProduct = ({ product }) => {
 
 
                 </div>
-                <div class="card-footer">
+                <div className="card-footer">
 
                     <button
                         className="button-read-more text-dark"

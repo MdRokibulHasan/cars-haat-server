@@ -27,8 +27,8 @@ const UserReview = () => {
 
                             <div className="info">
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                    <input {...register("name")} defaultValue={user?.displayName} disabled />
-                                    <input type="email" {...register("email")} defaultValue={user?.email} disabled />
+                                    <input {...register("name")} defaultValue={user?.displayName} />
+                                    <input type="email" {...register("email")} defaultValue={user?.email} />
                                     <input type="number" {...register("rating")} placeholder="Rating 1 to 5 any number" />
                                     <textarea type="text" {...register("sDescription")} placeholder="Short Description" style={{ width: '150% ' }}></textarea>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
-import UserOrderTable from './UserOrderTable/UserOrderTable';
+import Order from './UserOrderTable/Order';
 
 
 const UserOrder = () => {
@@ -40,10 +40,11 @@ const UserOrder = () => {
                 </thead>
                 <tbody>
                     {
-                        data?.map((iteam) => (<UserOrderTable
+                        data?.map((iteam, index) => (<Order
                             key={iteam._id}
+                            sl={index}
                             iteam={iteam}
-                        > </UserOrderTable>))
+                        > </Order>))
                     }
                 </tbody>
             </table>

@@ -29,8 +29,7 @@ const OrderDisplay = (props) => {
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);
-                    if (data.deletedCount) {
-                        alert('Delete Successfully')
+                    if (data.deletedCount == 1) {
                         const remaining = order.filter(iteam => iteam._id !== id);
                         setOrder(remaining);
                     }
